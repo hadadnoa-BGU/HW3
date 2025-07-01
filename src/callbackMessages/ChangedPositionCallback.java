@@ -5,5 +5,5 @@ import utils.Position;
 
 @FunctionalInterface
 public interface ChangedPositionCallback {
-    void onPositionChanged(Unit unit, Position newPosition);
+    void onPositionChanged(Position from, Position to);
 }

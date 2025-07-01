@@ -1,17 +1,24 @@
 package entities;
 
+import board.GameBoard;
 import board.Tile;
+import callbackMessages.*;
 import utils.Position;
 import utils.RandomUtils;
 
 public class Monster extends Enemy {
 
     private final int visionRange;
-
+    protected GetTileCallback getTileCallback;
     public Monster(String name, int healthPool, int attackPoints, int defensePoints, int experienceValue,
                    int visionRange, Position position) {
         super(name, healthPool, attackPoints, defensePoints, experienceValue, position);
         this.visionRange = visionRange;
+    }
+
+    public void initialize(DeathCallback dthCallback, MessageCallbacks msgCallback, ChangedPositionCallback cPosCallback, GetTileCallback getTileCallback) {
+        super.initialize(dthCallback, msgCallback, cPosCallback);
+        this.getTileCallback = getTileCallback;
     }
 
     @Override
@@ -71,11 +78,26 @@ public class Monster extends Enemy {
         }
     }
 
-    private void moveUp() { /* movement logic handled by controller/board */ }
-    private void moveDown() { /* same here */ }
-    private void moveLeft() { /* same */ }
-    private void moveRight() { /* same */ }
-    private void stay() { /* no movement */ }
+    private void moveUp() {
+
+        interact(getTileCallback.getTile(getPosition().up()));
+    }
+
+    private void moveDown() {
+        interact(getTileCallback.getTile(getPosition().down()));
+    }
+
+    private void moveLeft() {
+        interact(getTileCallback.getTile(getPosition().left()));
+    }
+
+    private void moveRight() {
+        interact(getTileCallback.getTile(getPosition().right()));
+    }
+
+    private void stay() {
+        // Do nothing
+    }
 
     @Override
     public String toString() {

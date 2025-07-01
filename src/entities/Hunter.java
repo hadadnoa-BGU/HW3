@@ -3,6 +3,8 @@ package entities;
 import board.Tile;
 import utils.Position;
 
+import java.util.List;
+
 public class Hunter extends Player {
 
     private final int range;
@@ -49,7 +51,7 @@ public class Hunter extends Player {
     }
 
     @Override
-    public void abilityCast() {
+    public void castAbility(List<Enemy> enemies) {
         if (arrowsCount <= 0) {
             System.out.println(getName() + " tried to use Shoot, but has no arrows left.");
             return;

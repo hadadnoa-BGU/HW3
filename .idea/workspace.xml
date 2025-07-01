@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Finished everything" />
+    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Finished everything">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/DnDGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/DnDGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/callbackMessages/ChangedPositionCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/callbackMessages/ChangedPositionCallback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Trap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mechanics/CombatSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/CombatSystem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -174,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751381988779</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Finished everything">
+      <option name="closed" value="true" />
+      <created>1751382106480</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1751382106480</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

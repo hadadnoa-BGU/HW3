@@ -9,6 +9,7 @@ public class Trap extends Enemy {
     private final int invisibilityTime;
     private int ticksCount;
     private boolean visible;
+    private final int trapRange = 2;
 
     public Trap(String name, int healthPool, int attackPoints, int defensePoints, int experienceValue,
                 int visibilityTime, int invisibilityTime, Position position) {
@@ -32,10 +33,16 @@ public class Trap extends Enemy {
         // Trap does not interact this way
     }
 
+
     @Override
     public void playTurn() {
-        // Trap does not move
+        visible = !visible;
+        if (position.distance(player.getPosition()) < trapRange) {
+            System.out.println("Trap triggers! " + player.getName() + " takes " + attackPoints + " damage.");
+            engageCombat(player);
+        }
     }
+
 
     @Override
     public void onTick() {

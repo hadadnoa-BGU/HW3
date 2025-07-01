@@ -1,5 +1,6 @@
 package app;
 
+import board.GameBoard;
 import board.Level;
 import board.Tile;
 import callbackMessages.*;
@@ -24,18 +25,31 @@ public class DnDGame {
     private DeathCallback dthCallback;
     private ChangedPositionCallback cPositionCallback;
     private GetTileCallback getTileCallback;
-
+    private LevelManager levelManager;
     private ConsoleView console;
 
     public DnDGame(String levelsPath) {
         this.levelsPath = levelsPath;
     }
 
+    // In app.DnDGame
     public void start() {
         initGame();
 
-        while (level.hasNextLevel() && player.isAlive()) {
-            level.loadNextLevel();
+        while (levelManager.hasNextLevel() && player.isAlive()) {
+
+            Object[] boardData = levelManager.loadNextLevel(player, msgCallback, dthCallback, cPositionCallback, getTileCallback);
+
+            level.setLevelData((GameBoard) boardData[0], (List<Enemy>) boardData[1]);
+
+            msgCallback.send("Level loaded successfully.");
+
+            enemies = level.getEnemies();
+            if (enemies == null || enemies.isEmpty()) {
+                msgCallback.send("Level failed to load properly or no enemies present.");
+                return;
+            }
+
             playLevel();
         }
 
@@ -45,6 +59,9 @@ public class DnDGame {
             msgCallback.send("Player died! Game Over.");
         }
     }
+
+
+
 
     private void initGame() {
         console = new ConsoleView();
@@ -56,10 +73,10 @@ public class DnDGame {
         player = console.getPlayer();
         player.initialize(RandomUtils::randomInt, dthCallback, msgCallback, cPositionCallback);
 
-
-
         level = new Level(levelsPath, MAX_LEVELS, player, msgCallback, dthCallback, cPositionCallback, getTileCallback);
+        levelManager = new LevelManager(levelsPath, MAX_LEVELS);
     }
+
 
     private void playLevel() {
         enemies = level.getEnemies();
@@ -95,8 +112,8 @@ public class DnDGame {
         return level.getTile(p);
     }
 
-    private void unitChangedPosition(entities.Unit u, Position to) {
-        level.getBoard().switchPosition(u.getPosition(), to);
+    private void unitChangedPosition(Position from, Position to) {
+        level.getBoard().switchPosition(from, to);
     }
 
     private void enemyDied(Enemy e) {

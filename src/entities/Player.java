@@ -4,8 +4,10 @@ import board.EmptyTile;
 import board.Tile;
 import board.WallTile;
 import callbackMessages.*;
+import mechanics.CombatSystem;
 import utils.Position;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.IntBinaryOperator;
 import java.util.function.IntUnaryOperator;
@@ -69,13 +71,22 @@ public abstract class Player extends Unit {
         engageCombat(e);
     }
 
+
+
+
     @Override
     public void visit(EmptyTile empty) {
-        // Move to empty tile
         Position oldPos = getPosition();
         setPosition(empty.getPosition());
         empty.setPosition(oldPos);
+
+        System.out.println("Moved from " + oldPos.getX() + "," + oldPos.getY() +
+                " to " + getPosition().getX() + "," + getPosition().getY());
+
+        if (cPosCallback != null)
+            cPosCallback.onPositionChanged(oldPos, getPosition());
     }
+
 
     @Override
     public void visit(WallTile wall) {
@@ -92,9 +103,31 @@ public abstract class Player extends Unit {
     }
 
     @Override
+
     public void playTurn(Tile tile) {
-        tile.accept(this);  // Triggers interaction based on the tile type (EmptyTile, WallTile, Enemy, etc.)
+        if (tile instanceof EmptyTile) {
+            tile.accept(this);  // Move onto empty tile
+        } else if (tile instanceof Enemy) {
+            Enemy enemy = (Enemy) tile;
+            CombatSystem.engageCombat(this, enemy);
+
+            // After combat, check if enemy died:
+            if (enemy.isDead()) {
+                if (dthCallback != null) dthCallback.onDeath(enemy);
+                // Replace enemy with EmptyTile
+                Position enemyPos = enemy.getPosition();
+                EmptyTile newTile = new EmptyTile(enemyPos);
+                newTile.accept(this);  // Now player moves into dead enemy's tile
+            }
+        } else {
+            tile.accept(this);  // Handle other interactions (walls etc.)
+        }
+
+        if (msgCallback != null) {
+            msgCallback.send(this.description());  // Print player stats
+        }
     }
+
 
     @Override
     public void onTick() {
@@ -116,14 +149,23 @@ public abstract class Player extends Unit {
     @Override
     public void castAbility(List<Enemy> enemies) {
         System.out.println(getName() + " casts a fireball!");
-        // Example: damage all enemies
+
+        // Collect enemies that died during the ability
+        List<Enemy> toRemove = new ArrayList<>();
+
         for (Enemy e : enemies) {
             engageCombat(e);
+            if (!e.isAlive()) {
+                if (dthCallback != null)
+                    dthCallback.onDeath(e);
+                toRemove.add(e);
+            }
         }
+
+        enemies.removeAll(toRemove);
     }
 
-    // Player-specific methods
-    public abstract void abilityCast();
+
 
     @Override
     public String toString() {

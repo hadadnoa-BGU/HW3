@@ -4,6 +4,8 @@ import board.Tile;
 import utils.Position;
 import utils.RandomUtils;
 
+import java.util.List;
+
 public class Mage extends Player {
 
     private int manaPool;
@@ -54,7 +56,7 @@ public class Mage extends Player {
     }
 
     @Override
-    public void abilityCast() {
+    public void castAbility(List<Enemy> enemies) {
         if (currentMana < manaCost) {
             System.out.println(getName() + " tried to use Blizzard, but doesn't have enough mana.");
             return;
@@ -64,13 +66,25 @@ public class Mage extends Player {
         System.out.println(getName() + " casts Blizzard!");
 
         int hits = 0;
-        // Actual logic to get living enemies within range handled by board/controller
-        while (hits < hitsCount /* && there are enemies in range */) {
-            // Placeholder for selecting random enemy:
-            System.out.println(getName() + " hits a random enemy within range " + abilityRange + " for " + spellPower + " damage.");
+        while (hits < hitsCount) {
+            // Filter living enemies within range
+            List<Enemy> inRange = enemies.stream()
+                    .filter(e -> e.isAlive() && position.distance(e.getPosition()) <= abilityRange)
+                    .toList();
+
+            if (inRange.isEmpty()) break;  // No valid targets
+
+            // Pick random enemy
+            int index = RandomUtils.randomInt(0, inRange.size() - 1);
+            Enemy target = inRange.get(index);
+
+            System.out.println(getName() + " hits " + target.getName() + " for " + spellPower + " damage.");
+            target.receiveDamage(spellPower);
+
             hits++;
         }
     }
+
 
     @Override
     public String description() {

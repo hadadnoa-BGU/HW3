@@ -4,6 +4,8 @@ import board.Tile;
 import utils.Position;
 import utils.RandomUtils;
 
+import java.util.List;
+
 public class Warrior extends Player {
 
     private final int abilityCooldown;
@@ -48,7 +50,8 @@ public class Warrior extends Player {
 
 
     @Override
-    public void abilityCast() {
+
+    public void castAbility(List<Enemy> enemies) {
         if (remainingCooldown > 0) {
             System.out.println(getName() + " tried to use Avenger's Shield, but it's still on cooldown (" + remainingCooldown + " turns left).");
             return;
@@ -60,10 +63,25 @@ public class Warrior extends Player {
 
         System.out.println(getName() + " casts Avenger's Shield and heals for " + healAmount + " health.");
 
-        // Logic to select random enemy within range < 3 happens in the game controller
-        // For now, just leaving placeholder:
-        System.out.println(getName() + " randomly hits an enemy within range < 3 for " + (int)(0.1 * healthPool) + " damage.");
+        // Filter enemies within range < 3
+        List<Enemy> inRange = enemies.stream()
+                .filter(e -> e.isAlive() && position.distance(e.getPosition()) < 3)
+                .toList();
+
+        if (inRange.isEmpty()) {
+            System.out.println("No enemies in range to hit.");
+            return;
+        }
+
+        // Select random target
+        int index = RandomUtils.randomInt(0, inRange.size() - 1);
+        Enemy target = inRange.get(index);
+
+        int damage = (int) (0.1 * healthPool);
+        System.out.println(getName() + " hits " + target.getName() + " for " + damage + " damage.");
+        target.receiveDamage(damage);
     }
+
 
     @Override
     public String description() {

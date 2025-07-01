@@ -4,6 +4,8 @@ import board.Tile;
 import utils.Position;
 import utils.RandomUtils;
 
+import java.util.List;
+
 public class Rogue extends Player {
 
     private final int abilityCost;
@@ -44,7 +46,8 @@ public class Rogue extends Player {
     }
 
     @Override
-    public void abilityCast() {
+
+    public void castAbility(List<Enemy> enemies) {
         if (currentEnergy < abilityCost) {
             System.out.println(getName() + " tried to use Fan of Knives, but doesn't have enough energy.");
             return;
@@ -53,8 +56,14 @@ public class Rogue extends Player {
         currentEnergy -= abilityCost;
         System.out.println(getName() + " casts Fan of Knives, hitting all enemies within range < 2 for " + attackPoints + " damage.");
 
-        // Actual area-of-effect handled by controller or board
+        for (Enemy e : enemies) {
+            if (e.isAlive() && position.distance(e.getPosition()) < 2) {
+                System.out.println(getName() + " hits " + e.getName() + " for " + attackPoints + " damage.");
+                e.receiveDamage(attackPoints);
+            }
+        }
     }
+
 
     @Override
     public String description() {

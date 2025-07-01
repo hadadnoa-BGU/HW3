@@ -93,7 +93,14 @@ public abstract class Unit extends Tile{
         currentHealth -= damage;
         if (currentHealth <= 0) {
             currentHealth = 0;
-            // Dead logic (handled by subclasses or board)
+            handleDeath();
         }
+    }
+    protected void handleDeath() {
+        if (this instanceof Enemy enemy && enemy.dthCallback != null) {
+            System.out.println(enemy.getName() + " has died.");
+            enemy.dthCallback.onDeath(enemy);
+        }
+
     }
 }

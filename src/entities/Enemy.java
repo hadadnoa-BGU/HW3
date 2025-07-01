@@ -51,19 +51,40 @@ public abstract class Enemy extends Unit {
     public void visit(Enemy e) {
         // Enemy visiting another enemy: do nothing
     }
+    public boolean isDead() {
+        return currentHealth <= 0;
+    }
 
+    public void receiveDamage(int damage) {
+        currentHealth -= damage;
+        if (currentHealth <= 0) {
+            currentHealth = 0;
+            handleDeath();
+        }
+    }
+
+    protected void handleDeath() {
+        if (this instanceof Enemy enemy && enemy.dthCallback != null) {
+            System.out.println(enemy.getName() + " has died.");
+            enemy.dthCallback.onDeath(enemy);
+        }
+    }
     @Override
     public void castAbility(List<Enemy> enemies) {
         // Regular enemies have no special ability
     }
 
+    // In entities.Enemy
     @Override
     public void visit(EmptyTile empty) {
-        // Move to empty tile
         Position oldPos = getPosition();
         setPosition(empty.getPosition());
         empty.setPosition(oldPos);
+
+        if (cPosCallback != null)
+            cPosCallback.onPositionChanged(oldPos, getPosition());
     }
+
 
     public void initialize(DeathCallback dthCallback, MessageCallbacks msgCallback, ChangedPositionCallback cPosCallback) {
         this.dthCallback = dthCallback;
