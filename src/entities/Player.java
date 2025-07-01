@@ -28,13 +28,36 @@ public abstract class Player extends Unit {
         this.playerLevel = 1;
     }
 
-    public int getLevel() {
-        return playerLevel;
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public int getHealthPool() {
+        return healthPool;
+    }
+
+    public int getAttackPoints() {
+        return attackPoints;
+    }
+
+    public int getDefensePoints() {
+        return defensePoints;
     }
 
     public int getExperience() {
         return experience;
     }
+
+    public int getExperienceThreshold() {
+        return 50 * playerLevel;
+    }
+
+
+    public int getLevel() {
+        return playerLevel;
+    }
+
+
 
     public void gainExperience(int amount) {
         experience += amount;

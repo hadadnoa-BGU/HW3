@@ -10,13 +10,23 @@ public class Hunter extends Player {
     private final int range;
     private int arrowsCount;
     private int ticksCount;
+    private int arrows;
 
-    public Hunter(String name, int healthPool, int attackPoints, int defensePoints, int range, Position position) {
-        super(name, healthPool, attackPoints, defensePoints, position);
+    public Hunter(String name, int health, int attack, int defense, int arrows, int range, Position position) {
+        super(name, health, attack, defense, position);
+        this.arrows = arrows;
         this.range = range;
-        this.arrowsCount = 10 * playerLevel;
-        this.ticksCount = 0;
     }
+
+    public int getArrows() {
+        return arrows;
+    }
+
+    public int getRange() {
+        return range;
+    }
+
+
 
     @Override
     public void playTurn(Tile tile) {
