@@ -3,6 +3,7 @@ package mechanics;
 import board.GameBoard;
 import board.Tile;
 import entities.Unit;
+import utils.Position;
 
 public class MovementHandler {
 
@@ -17,6 +18,7 @@ public class MovementHandler {
      * Handles all Visitor logic behind the scenes.
      */
     public void move(Unit mover, int targetX, int targetY) {
+        Position oldPos = mover.getPosition();
         Tile targetTile = board.getTile(targetX, targetY);
 
         if (targetTile == null) {
@@ -25,6 +27,8 @@ public class MovementHandler {
         }
 
         mover.interact(targetTile);  // Visitor pattern resolves interaction
+        board.setTile(targetX, targetY, mover);
+        board.setTile(oldPos.getX(), oldPos.getY(), targetTile);
     }
 
     /**

@@ -59,6 +59,7 @@ class MovementHandlerTest {
         Position newPos = unit.getPosition();
         assertEquals(1, newPos.getX());
         assertEquals(2, newPos.getY());
+        Tile u = gameBoard.getTile(1, 2);
         assertSame(unit, gameBoard.getTile(1, 2));
     }
 

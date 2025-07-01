@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Finished everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/entities/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/entities/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mechanics/MovementHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/MovementHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +62,7 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in HW3.executor": "Run",
+    "JUnit.All in HW3.executor": "Debug",
     "JUnit.MovementHandlerTest.testMoveDown.executor": "Debug",
     "JUnit.PlayerTest.testAbilityConsumesMana.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -93,7 +92,7 @@
       <recent name="C:\Users\ionik\IdeaProjects\hw3\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MovementHandlerTest.testMoveDown">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -114,6 +113,22 @@
       <module name="HW3" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MovementHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HW3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mechanics.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mechanics" />
+      <option name="MAIN_CLASS_NAME" value="mechanics.MovementHandlerTest" />
+      <option name="METHOD_NAME" value="testMoveDown" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,16 +167,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.MovementHandlerTest" />
       <item itemvalue="JUnit.All in HW3" />
       <item itemvalue="JUnit.MovementHandlerTest.testMoveDown" />
       <item itemvalue="JUnit.PlayerTest.testAbilityConsumesMana" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.MovementHandlerTest" />
         <item itemvalue="JUnit.MovementHandlerTest.testMoveDown" />
         <item itemvalue="JUnit.All in HW3" />
         <item itemvalue="JUnit.PlayerTest.testAbilityConsumesMana" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -309,19 +326,24 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mechanics/MovementHandler.java</url>
-          <line>19</line>
+          <line>21</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/mechanics/MovementHandler.java</url>
-          <line>26</line>
+          <line>28</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
