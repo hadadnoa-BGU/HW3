@@ -30,7 +30,8 @@ public class MovementHandler {
     /**
      * Convenience methods for directional movement.
      */
-    public void moveUp(Unit mover) {
+    public void moveUp(Unit mover)
+    {
         move(mover, mover.getPosition().getX(), mover.getPosition().getY() - 1);
     }
 
