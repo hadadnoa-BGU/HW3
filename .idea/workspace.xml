@@ -4,36 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Added Mechanics and Board">
-      <change afterPath="$PROJECT_DIR$/src/callbackMessages/ChangedPositionCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/callbackMessages/DeathCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/callbackMessages/GetTileCallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/callbackMessages/MessageCallbacks.java" afterDir="false" />
+    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Finished everything">
       <change beforePath="$PROJECT_DIR$/.idea/HW3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HW3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/DnDGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/DnDGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/LevelManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board/EmptyTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/EmptyTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/board/WallTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/WallTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Boss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Hunter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Mage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Rogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Trap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Unit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mechanics/CombatSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/CombatSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mechanics/RangeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/RangeUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ConsoleView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Health.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RandomUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,12 +60,12 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "81c7daa5",
+    "git-widget-placeholder": "ronen",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ionik/Downloads/HW3",
     "onboarding.tips.debug.path": "C:/Users/ionik/IdeaProjects/hw3/src/Main.java",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
@@ -179,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751371513981</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Finished everything">
+      <option name="closed" value="true" />
+      <created>1751381066437</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1751381066437</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +191,7 @@
     <MESSAGE value="Finished writing entities" />
     <MESSAGE value="Added visitor checks" />
     <MESSAGE value="Added Mechanics and Board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Mechanics and Board" />
+    <MESSAGE value="Finished everything" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished everything" />
   </component>
 </project>
