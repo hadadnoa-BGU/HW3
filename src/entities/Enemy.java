@@ -20,6 +20,7 @@ public abstract class Enemy extends Unit {
         this.experienceValue = experienceValue;
     }
 
+
     public int getExperienceValue() {
         return experienceValue;
     }
@@ -28,6 +29,10 @@ public abstract class Enemy extends Unit {
     public String description() {
         return String.format("%s\tHealth: %d/%d\tAttack: %d\tDefense: %d\tXP Value: %d",
                 name, currentHealth, healthPool, attackPoints, defensePoints, experienceValue);
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 
     @Override

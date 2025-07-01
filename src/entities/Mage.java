@@ -28,7 +28,16 @@ public class Mage extends Player {
 
     @Override
     public void playTurn(Tile tile) {
-        interact(tile);
+        if (position.distance(tile.getPosition()) <= range && tile instanceof Enemy e && e.isAlive()) {
+            System.out.println(getName() + " shoots " + e.getName() + " from afar!");
+            engageCombat(e);
+
+            if (e.isDead() && dthCallback != null) {
+                dthCallback.onDeath(e);
+            }
+        } else {
+            super.playTurn(tile);  // Default move/combat logic
+        }
     }
     public int getCurrentMana() { return currentMana; }
     public int getManaPool() { return manaPool; }
