@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Added Mechanics and Board" />
+    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Added Mechanics and Board">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/Tile.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +33,16 @@
   "selectedUrlAndAccountId": {
     "url": "https://github.com/hadadnoa-BGU/HW3.git",
     "accountId": "0a98e8ea-1fe4-4eaa-a297-727cc674fde1"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "hadadnoa-BGU",
+    "repository": "HW3"
   }
 }]]></component>
   <component name="ProjectColorInfo">{
@@ -45,7 +58,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Ronen",
+    "git-widget-placeholder": "#3 on Ronen",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ionik/Downloads/HW3",
@@ -101,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751370062502</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added Mechanics and Board">
+      <option name="closed" value="true" />
+      <created>1751371441602</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1751371441602</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Added Mechanics and Board">
+      <option name="closed" value="true" />
+      <created>1751371513981</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751371513981</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
