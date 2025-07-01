@@ -63,14 +63,9 @@ public abstract class Unit {
 
     // Combat logic (shared for Player/Enemy)
     public void engageCombat(Unit defender) {
-        int attackRoll = (int) (Math.random() * (this.attackPoints + 1));
-        int defenseRoll = (int) (Math.random() * (defender.defensePoints + 1));
-        int damage = attackRoll - defenseRoll;
-
-        if (damage > 0) {
-            defender.receiveDamage(damage);
-        }
+        CombatSystem.engageCombat(this, defender);
     }
+
 
     public void receiveDamage(int damage) {
         currentHealth -= damage;
