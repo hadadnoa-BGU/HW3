@@ -3,6 +3,7 @@ package mechanics;
 import board.*;
 import entities.Mage;
 import entities.Unit;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import utils.Position;
@@ -88,11 +89,17 @@ class MovementHandlerTest {
         unit.setPosition(new Position(0, 0));
         gameBoard.setTile(0, 0, unit);
 
-        movementHandler.moveUp(unit); // Out of bounds
-
-        Position pos = unit.getPosition();
-        assertEquals(0, pos.getX());
-        assertEquals(0, pos.getY());  // Position should remain unchanged
-        assertSame(unit, gameBoard.getTile(0, 0));
+        try
+        {
+            movementHandler.moveUp(unit); // Out of bounds
+            Assertions.fail("should have thrown an exception after trying an invalid move");
+        }
+        catch (IllegalArgumentException e)
+        {
+            Position pos = unit.getPosition();
+            assertEquals(0, pos.getX());
+            assertEquals(0, pos.getY());  // Position should remain unchanged
+            assertSame(unit, gameBoard.getTile(0, 0));
+        }
     }
 }

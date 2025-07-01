@@ -131,4 +131,8 @@ public class Mage extends Player {
     public String description() {
         return super.description() + String.format("\tMana: %d/%d\tSpell Power: %d", currentMana, manaPool, spellPower);
     }
+    public int getMana()
+    {
+        return this.currentMana;
+    }
 }
