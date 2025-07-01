@@ -32,7 +32,7 @@ public class DnDGame
     public Game(String path) 
     {
         this.path = path;
-        this.generator = new RandomGenerator();
+        this.generator = new NumberGenerator();
     }
 
     public void start() 
