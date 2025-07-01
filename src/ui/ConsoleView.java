@@ -85,7 +85,8 @@ public class ConsoleView {
         players.add(new Rogue("Bronn", 250, 35, 3, 50, null));
 
         // Hunters (once we implement)
-        players.add(new Hunter("Ygritte", 220, 30, 2, 10, 6, null));
+        players.add(new Hunter("Ygritte", 220, 30, 2, 6, 10, null));
+
 
         return players;
     }

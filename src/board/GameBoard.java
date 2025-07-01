@@ -11,8 +11,11 @@ public class GameBoard {
         this.board = board;
     }
 
+    public Tile[][] getTiles() {
+        return board;
+    }
     public void switchPosition(Position from, Position to) {
-        System.out.println("Swapping positions: (" + from.getX() + "," + from.getY() + ") with (" + to.getX() + "," + to.getY() + ")");
+
 
         Tile temp = board[to.getY()][to.getX()];
         board[to.getY()][to.getX()] = board[from.getY()][from.getX()];

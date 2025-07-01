@@ -60,6 +60,7 @@ public abstract class Enemy extends Unit {
         return currentHealth <= 0;
     }
 
+    @Override
     public void receiveDamage(int damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
@@ -67,6 +68,8 @@ public abstract class Enemy extends Unit {
             handleDeath();
         }
     }
+
+
 
     protected void handleDeath() {
         if (this instanceof Enemy enemy && enemy.dthCallback != null) {

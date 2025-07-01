@@ -1,81 +1,63 @@
 package entities;
 
+import board.EmptyTile;
 import board.Tile;
 import utils.Position;
-
-import java.util.List;
 
 public class Hunter extends Player {
 
     private final int range;
-    private int arrowsCount;
-    private int ticksCount;
     private int arrows;
 
-    public Hunter(String name, int health, int attack, int defense, int arrows, int range, Position position) {
-        super(name, health, attack, defense, position);
-        this.arrows = arrows;
+    public Hunter(String name, int healthPool, int attackPoints, int defensePoints, int range, int arrows, Position position) {
+        super(name, healthPool, attackPoints, defensePoints, position);
         this.range = range;
+        this.arrows = arrows;
     }
 
-    public int getArrows() {
-        return arrows;
-    }
+    public void playTurn(Tile targetTile, Tile[][] board, int dx, int dy) {
+        if (arrows <= 0) {
+            super.playTurn(targetTile); // No arrows, normal behavior
+            return;
+        }
 
-    public int getRange() {
-        return range;
-    }
+        Position pos = getPosition();
 
+        for (int i = 1; i <= range; i++) {
+            int nx = pos.getX() + dx * i;
+            int ny = pos.getY() + dy * i;
 
+            if (ny < 0 || ny >= board.length || nx < 0 || nx >= board[0].length) break;
 
-    @Override
-    public void playTurn(Tile tile) {
-        interact(tile);
+            Tile t = board[ny][nx];
+
+            if (t instanceof Enemy enemy) {
+                System.out.println(getName() + " shoots an arrow at " + enemy.getName());
+                engageCombat(enemy);
+                arrows--;
+
+                if (!enemy.isAlive() && dthCallback != null)
+                    dthCallback.onDeath(enemy);
+                return;
+            } else if (!(t instanceof EmptyTile)) {
+                break;
+            }
+        }
+
+        // No enemy in line, move normally
+        super.playTurn(targetTile);
     }
 
     @Override
     public void playTurn() {
-        // Players don't act autonomously
-    }
-
-    @Override
-    public void onTick() {
-        gameTick();
-    }
-
-
-    @Override
-    protected void levelUp() {
-        super.levelUp();
-        arrowsCount += 10 * playerLevel;
-        attackPoints += 2 * playerLevel;
-        defensePoints += 1 * playerLevel;
-    }
-
-    public void gameTick() {
-        ticksCount++;
-        if (ticksCount == 10) {
-            arrowsCount += playerLevel;
-            ticksCount = 0;
-        }
-    }
-
-    @Override
-    public void castAbility(List<Enemy> enemies) {
-        if (arrowsCount <= 0) {
-            System.out.println(getName() + " tried to use Shoot, but has no arrows left.");
-            return;
-        }
-
-        // Logic for finding the closest enemy within range happens at controller level
-        System.out.println(getName() + " shoots the closest enemy within range " + range +
-                " for " + attackPoints + " damage.");
-
-        arrowsCount--;
+        // Hunters don't act autonomously
     }
 
     @Override
     public String description() {
-        return super.description() + String.format("\tArrows: %d\tRange: %d", arrowsCount, range);
+        return super.description() + String.format("\tArrows: %d\tRange: %d", arrows, range);
     }
+
+    public int getRange() { return range; }
+    public int getArrows() { return arrows; }
 }
