@@ -30,7 +30,6 @@ class MovementHandlerTest {
 
         // Place Mage at center
         unit = new Mage("Merlin", 100, 20, 10, 100, 15, 10, 3, 2, new Position(1, 1));
-        gameBoard.setTile(1, 1, unit);
     }
 
     /**
@@ -38,6 +37,9 @@ class MovementHandlerTest {
      */
     @Test
     void testMoveUp() {
+        unit.setPosition(new Position(1, 1));
+        gameBoard.setTile(1, 1, unit);
+
         movementHandler.moveUp(unit);
         Position newPos = unit.getPosition();
         assertEquals(1, newPos.getX());
@@ -50,6 +52,9 @@ class MovementHandlerTest {
      */
     @Test
     void testMoveDown() {
+        unit.setPosition(new Position(1, 1));
+        gameBoard.setTile(1, 1, unit);
+
         movementHandler.moveDown(unit);
         Position newPos = unit.getPosition();
         assertEquals(1, newPos.getX());
@@ -62,6 +67,9 @@ class MovementHandlerTest {
      */
     @Test
     void testMoveLeft() {
+        unit.setPosition(new Position(1, 1));
+        gameBoard.setTile(1, 1, unit);
+
         movementHandler.moveLeft(unit);
         Position newPos = unit.getPosition();
         assertEquals(0, newPos.getX());
@@ -74,6 +82,9 @@ class MovementHandlerTest {
      */
     @Test
     void testMoveRight() {
+        unit.setPosition(new Position(1, 1));
+        gameBoard.setTile(1, 1, unit);
+
         movementHandler.moveRight(unit);
         Position newPos = unit.getPosition();
         assertEquals(2, newPos.getX());

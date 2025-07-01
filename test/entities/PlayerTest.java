@@ -45,7 +45,7 @@ public class PlayerTest {
         Mage mage = new Mage(
                 "Gandalf",
                 100, 20, 5,
-                100, // mana pool
+                500, // mana pool
                 30,  // mana cost
                 25, 2, 3,
                 magePos);
