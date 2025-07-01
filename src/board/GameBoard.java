@@ -1,49 +1,48 @@
 package board;
 
 import entities.Unit;
+import utils.Position;
 
 public class GameBoard {
 
-    private final int width;
-    private final int height;
-    private final Tile[][] tiles;
+    private Tile[][] board;
 
-    public GameBoard(int width, int height) {
-        this.width = width;
-        this.height = height;
-        this.tiles = new Tile[height][width];  // [row][col]
+    public GameBoard(Tile[][] board) {
+        this.board = board;
     }
 
-    public Tile getTile(int x, int y) {
-        if (x < 0 || y < 0 || x >= width || y >= height) {
-            return null;
-        }
-        return tiles[y][x];
+    public void switchPosition(Position from, Position to) {
+        Tile temp = board[to.getY()][to.getX()];
+        board[to.getY()][to.getX()] = board[from.getY()][from.getX()];
+        board[from.getY()][from.getX()] = temp;
+    }
+
+    public void remove(Unit u) {
+        Position pos = u.getPosition();
+        board[pos.getY()][pos.getX()] = new EmptyTile(pos);
+    }
+
+    public Tile getTile(Position p) {
+        return board[p.getY()][p.getX()];
     }
 
     public void setTile(int x, int y, Tile tile) {
-        tiles[y][x] = tile;
+        board[y][x] = tile;
     }
 
-    public void swapTiles(Tile a, Tile b) {
-        int ax = a.getX();
-        int ay = a.getY();
-        int bx = b.getX();
-        int by = b.getY();
-
-        tiles[ay][ax] = b;
-        tiles[by][bx] = a;
-
-        a.setPosition(bx, by);
-        b.setPosition(ax, ay);
+    public Tile getTile(int x, int y) {
+        return board[y][x];
     }
 
-    public void displayBoard() {
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                System.out.print(tiles[y][x].toString());
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Tile[] row : board) {
+            for (Tile t : row) {
+                sb.append(t.toString());
             }
-            System.out.println();
+            sb.append("\n");
         }
+        return sb.toString();
     }
 }

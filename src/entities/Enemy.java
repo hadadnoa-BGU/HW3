@@ -1,10 +1,19 @@
 package entities;
 
-import util.Position;
+import board.EmptyTile;
+import board.WallTile;
+import callbackMessages.*;
+import utils.Position;
+
+import java.util.List;
 
 public abstract class Enemy extends Unit {
 
     protected int experienceValue;
+    protected DeathCallback dthCallback;
+    protected MessageCallbacks msgCallback;
+    protected ChangedPositionCallback cPosCallback;
+    protected Player player;
 
     public Enemy(String name, int healthPool, int attackPoints, int defensePoints, int experienceValue, Position position) {
         super(name, healthPool, attackPoints, defensePoints, position);
@@ -44,6 +53,11 @@ public abstract class Enemy extends Unit {
     }
 
     @Override
+    public void castAbility(List<Enemy> enemies) {
+        // Regular enemies have no special ability
+    }
+
+    @Override
     public void visit(EmptyTile empty) {
         // Move to empty tile
         Position oldPos = getPosition();
@@ -51,6 +65,14 @@ public abstract class Enemy extends Unit {
         empty.setPosition(oldPos);
     }
 
+    public void initialize(DeathCallback dthCallback, MessageCallbacks msgCallback, ChangedPositionCallback cPosCallback) {
+        this.dthCallback = dthCallback;
+        this.msgCallback = msgCallback;
+        this.cPosCallback = cPosCallback;
+    }
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
     @Override
     public void visit(WallTile wall) {
         // Block movement

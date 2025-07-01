@@ -1,6 +1,7 @@
 package entities;
 
-import util.Position;
+import board.Tile;
+import utils.Position;
 
 public class Trap extends Enemy {
 
@@ -24,6 +25,21 @@ public class Trap extends Enemy {
         if (visible && position.distance(playerPosition) < 2) {
             attackPlayer();
         }
+    }
+
+    @Override
+    public void playTurn(Tile tile) {
+        // Trap does not interact this way
+    }
+
+    @Override
+    public void playTurn() {
+        // Trap does not move
+    }
+
+    @Override
+    public void onTick() {
+        // Trap's tick logic goes here (e.g., countdowns, damage triggers)
     }
 
     private void updateVisibility() {

@@ -1,7 +1,8 @@
 package entities;
 
-import util.Position;
-import util.RandomUtils;
+import board.Tile;
+import utils.Position;
+import utils.RandomUtils;
 
 public class Warrior extends Player {
 
@@ -28,6 +29,23 @@ public class Warrior extends Player {
         if (remainingCooldown > 0)
             remainingCooldown--;
     }
+
+    @Override
+    public void playTurn(Tile tile) {
+        interact(tile);
+    }
+
+    @Override
+    public void playTurn() {
+        // Players don't act autonomously
+    }
+
+    @Override
+    public void onTick() {
+        gameTick();
+    }
+
+
 
     @Override
     public void abilityCast() {

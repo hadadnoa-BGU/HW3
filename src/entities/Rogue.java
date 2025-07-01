@@ -1,7 +1,8 @@
 package entities;
 
-import util.Position;
-import util.RandomUtils;
+import board.Tile;
+import utils.Position;
+import utils.RandomUtils;
 
 public class Rogue extends Player {
 
@@ -20,6 +21,23 @@ public class Rogue extends Player {
         currentEnergy = 100;
         attackPoints += 3 * playerLevel;
     }
+
+    @Override
+    public void playTurn(Tile tile) {
+        interact(tile);
+    }
+
+    @Override
+    public void playTurn() {
+        // Players don't act autonomously
+    }
+
+    @Override
+    public void onTick() {
+        gameTick();
+    }
+
+
 
     public void gameTick() {
         currentEnergy = Math.min(currentEnergy + 10, 100);

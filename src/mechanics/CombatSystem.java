@@ -1,7 +1,7 @@
 package mechanics;
 
 import entities.Unit;
-import util.RandomUtils;
+import utils.RandomUtils;
 
 public class CombatSystem {
 

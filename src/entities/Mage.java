@@ -1,7 +1,8 @@
 package entities;
 
-import util.Position;
-import util.RandomUtils;
+import board.Tile;
+import utils.Position;
+import utils.RandomUtils;
 
 public class Mage extends Player {
 
@@ -22,6 +23,23 @@ public class Mage extends Player {
         this.hitsCount = hitsCount;
         this.abilityRange = abilityRange;
     }
+
+    @Override
+    public void playTurn(Tile tile) {
+        interact(tile);
+    }
+
+    @Override
+    public void playTurn() {
+        // Players don't act autonomously
+    }
+
+    @Override
+    public void onTick() {
+        gameTick();
+    }
+
+
 
     @Override
     protected void levelUp() {

@@ -1,6 +1,6 @@
 package entities;
 
-import util.Position;
+import utils.Position;
 
 public class Boss extends Monster implements HeroicUnit {
 
@@ -14,7 +14,7 @@ public class Boss extends Monster implements HeroicUnit {
         this.combatTicks = 0;
     }
 
-    @Override
+
     public void takeTurn(Position playerPosition, Unit player) {
         super.takeTurn(playerPosition);
 

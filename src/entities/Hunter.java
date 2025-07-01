@@ -1,6 +1,7 @@
 package entities;
 
-import util.Position;
+import board.Tile;
+import utils.Position;
 
 public class Hunter extends Player {
 
@@ -14,6 +15,22 @@ public class Hunter extends Player {
         this.arrowsCount = 10 * playerLevel;
         this.ticksCount = 0;
     }
+
+    @Override
+    public void playTurn(Tile tile) {
+        interact(tile);
+    }
+
+    @Override
+    public void playTurn() {
+        // Players don't act autonomously
+    }
+
+    @Override
+    public void onTick() {
+        gameTick();
+    }
+
 
     @Override
     protected void levelUp() {

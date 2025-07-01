@@ -1,7 +1,8 @@
 package entities;
 
-import util.Position;
-import util.RandomUtils;
+import board.Tile;
+import utils.Position;
+import utils.RandomUtils;
 
 public class Monster extends Enemy {
 
@@ -11,6 +12,23 @@ public class Monster extends Enemy {
                    int visionRange, Position position) {
         super(name, healthPool, attackPoints, defensePoints, experienceValue, position);
         this.visionRange = visionRange;
+    }
+
+    @Override
+    public void playTurn(Tile targetTile) {
+        interact(targetTile);  // Visitor pattern handles interaction
+    }
+
+
+    @Override
+    public void playTurn() {
+        if (player == null) return;
+        takeTurn(player.getPosition());
+    }
+
+    @Override
+    public void onTick() {
+        // For now, basic enemies might have no per-tick logic
     }
 
     public int getVisionRange() {

@@ -1,6 +1,6 @@
 package mechanics;
 
-import util.Position;
+import utils.Position;
 
 public class RangeUtils {
 

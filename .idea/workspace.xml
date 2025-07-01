@@ -5,8 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Added Mechanics and Board">
+      <change afterPath="$PROJECT_DIR$/src/callbackMessages/ChangedPositionCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/callbackMessages/DeathCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/callbackMessages/GetTileCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/callbackMessages/MessageCallbacks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HW3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HW3.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/DnDGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/DnDGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board/EmptyTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/EmptyTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/GameBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/board/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/board/WallTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/board/WallTile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Boss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Hunter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Hunter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Mage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Mage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Rogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Rogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Trap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Unit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Unit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mechanics/CombatSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/CombatSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mechanics/RangeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/RangeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/ConsoleView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/ConsoleView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Health.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Health.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/RandomUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/RandomUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +43,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -23,28 +51,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Ronenkh"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ronenkh&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/hadadnoa-BGU/HW3.git",
-    "accountId": "0a98e8ea-1fe4-4eaa-a297-727cc674fde1"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hadadnoa-BGU/HW3.git&quot;,
+    &quot;accountId&quot;: &quot;0a98e8ea-1fe4-4eaa-a297-727cc674fde1&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "hadadnoa-BGU",
-    "repository": "HW3"
+    &quot;owner&quot;: &quot;hadadnoa-BGU&quot;,
+    &quot;repository&quot;: &quot;HW3&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -56,14 +84,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#3 on Ronen",
+    "git-widget-placeholder": "81c7daa5",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/ionik/Downloads/HW3",
     "onboarding.tips.debug.path": "C:/Users/ionik/IdeaProjects/hw3/src/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
   }
@@ -72,6 +101,26 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ionik\IdeaProjects\hw3\src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="HW3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

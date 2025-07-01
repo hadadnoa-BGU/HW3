@@ -1,8 +1,14 @@
 package entities;
 
-import util.Position;
+import board.EmptyTile;
+import board.Tile;
+import board.WallTile;
+import mechanics.CombatSystem;
+import utils.Position;
 
-public abstract class Unit {
+import java.util.List;
+
+public abstract class Unit extends Tile{
 
     protected String name;
     protected int healthPool;
@@ -12,6 +18,7 @@ public abstract class Unit {
     protected Position position;
 
     public Unit(String name, int healthPool, int attackPoints, int defensePoints, Position position) {
+        super(position.getX(), position.getY());
         this.name = name;
         this.healthPool = healthPool;
         this.currentHealth = healthPool;
@@ -20,6 +27,13 @@ public abstract class Unit {
         this.position = position;
     }
 
+    public int getAttackPoints() {
+        return attackPoints;
+    }
+
+    public int getDefensePoints() {
+        return defensePoints;
+    }
     public String getName() {
         return name;
     }
@@ -41,6 +55,12 @@ public abstract class Unit {
                 name, currentHealth, healthPool, attackPoints, defensePoints);
     }
 
+    public abstract void playTurn(Tile tile);  // For player
+
+    public abstract void playTurn();           // For enemies
+
+    public abstract void onTick();
+
     @Override
     public String toString() {
         return "?";  // Override this in Player/Enemy to provide board symbol
@@ -52,6 +72,7 @@ public abstract class Unit {
 
     public abstract void accept(Unit visitor);
 
+    public abstract void castAbility(List<Enemy> enemies);
     public abstract void visit(Player p);
 
     public abstract void visit(Enemy e);

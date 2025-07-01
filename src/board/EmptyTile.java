@@ -1,13 +1,13 @@
 package board;
 
 import entities.Unit;
+import utils.Position;
 
 public class EmptyTile extends Tile {
 
-    public EmptyTile(int x, int y) {
-        super(x, y);
+    public EmptyTile(Position position) {
+        super(position.getX(), position.getY());
     }
-
     @Override
     public void accept(Unit visitor) {
         visitor.visit(this);  // Visitor pattern lets unit move onto this tile
