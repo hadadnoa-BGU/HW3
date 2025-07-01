@@ -82,10 +82,16 @@ public class DnDGame {
         enemies = level.getEnemies();
         while (!enemies.isEmpty() && player.isAlive()) {
             msgCallback.send(level.getBoard().toString());
+            msgCallback.send(player.description());
             String input = console.readLine();
             playTurn(input);
         }
+
+        if (player.isAlive()) {
+            msgCallback.send("Level Cleared!");
+        }
     }
+
 
     private void playTurn(String input) {
         Position p = player.getPosition();
@@ -102,11 +108,20 @@ public class DnDGame {
             default -> msgCallback.send("Invalid input!");
         }
 
+        // Early exit if player cleared the level
+        if (enemies.isEmpty()) {
+            msgCallback.send("Level Cleared!");
+            return;
+        }
+
+        // Enemies take their turn
         for (Enemy e : enemies) {
             e.playTurn();
         }
+
         player.onTick();
     }
+
 
     private Tile getTile(Position p) {
         return level.getTile(p);
