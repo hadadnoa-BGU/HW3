@@ -1,8 +1,7 @@
 package ui;
 
 import callbackMessages.MessageCallbacks;
-import entities.Player;
-
+import entities.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -46,16 +45,48 @@ public class ConsoleView {
     private void printPlayers() {
         for (int i = 0; i < allPlayers.size(); i++) {
             Player p = allPlayers.get(i);
-            System.out.println((i + 1) + ". " + p.description());
+            String name = String.format("%-20s", p.getName());
+            String commonStats = String.format(
+                    "Health: %d/%d\tAttack: %d\tDefense: %d\tLevel: %d\tExperience: %d/%d",
+                    p.getCurrentHealth(), p.getHealthPool(), p.getAttackPoints(), p.getDefensePoints(),
+                    p.getLevel(), p.getExperience(), p.getExperienceThreshold());
+
+            String extraStats = "";
+
+            if (p instanceof Warrior w) {
+                extraStats = String.format("\tCooldown: %d/%d", w.getAbilityCooldown(), w.getMaxCooldown());
+            } else if (p instanceof Mage m) {
+                extraStats = String.format("\tMana: %d/%d\tSpell Power: %d", m.getCurrentMana(), m.getManaPool(), m.getSpellPower());
+            } else if (p instanceof Rogue r) {
+                extraStats = String.format("\tEnergy: %d/%d", r.getCurrentEnergy(), r.getMaxEnergy());
+            } else if (p instanceof Hunter h) {
+                extraStats = String.format("\tArrows: %d\tRange: %d", h.getArrows(), h.getRange());
+            }
+
+            System.out.println((i + 1) + ". " + name + commonStats + extraStats);
         }
     }
 
     private List<Player> createPlayerList() {
         List<Player> players = new ArrayList<>();
-        // Example placeholder players, adjust based on your Player constructors
-        players.add(new entities.Warrior("Warrior", 100, 20, 10, 3, null));
-        players.add(new entities.Mage("Mage", 80, 15, 5, 100, 20, 15, 5, 6, null));
-        players.add(new entities.Rogue("Rogue", 90, 18, 8, 15, null));
+
+
+
+        // Warriors
+        players.add(new Warrior("Jon Snow", 300, 30, 4, 3, null));
+        players.add(new Warrior("The Hound", 400, 20, 6, 5, null));
+
+        // Mages
+        players.add(new Mage("Melisandre", 100, 5, 1, 300, 30, 15, 5, 6, null));
+        players.add(new Mage("Thoros of Myr", 250, 25, 4, 150, 20, 20, 3, 4, null));
+
+        // Rogues
+        players.add(new Rogue("Arya Stark", 150, 40, 2, 20, null));
+        players.add(new Rogue("Bronn", 250, 35, 3, 50, null));
+
+        // Hunters (once we implement)
+        players.add(new Hunter("Ygritte", 220, 30, 2, 6, 10, null));
+
 
         return players;
     }

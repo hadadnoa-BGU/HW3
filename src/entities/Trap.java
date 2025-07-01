@@ -1,6 +1,10 @@
 package entities;
 
 import board.Tile;
+import callbackMessages.ChangedPositionCallback;
+import callbackMessages.DeathCallback;
+import callbackMessages.GetTileCallback;
+import callbackMessages.MessageCallbacks;
 import utils.Position;
 
 public class Trap extends Enemy {
@@ -10,6 +14,7 @@ public class Trap extends Enemy {
     private int ticksCount;
     private boolean visible;
     private final int trapRange = 2;
+    protected GetTileCallback getTileCallback;
 
     public Trap(String name, int healthPool, int attackPoints, int defensePoints, int experienceValue,
                 int visibilityTime, int invisibilityTime, Position position) {
@@ -33,6 +38,10 @@ public class Trap extends Enemy {
         // Trap does not interact this way
     }
 
+    public void initialize(DeathCallback dthCallback, MessageCallbacks msgCallback, ChangedPositionCallback cPosCallback, GetTileCallback getTileCallback) {
+        super.initialize(dthCallback, msgCallback, cPosCallback);
+        this.getTileCallback = getTileCallback;
+    }
 
     @Override
     public void playTurn() {
@@ -74,7 +83,18 @@ public class Trap extends Enemy {
         return visible ? getTrapSymbol() : ".";
     }
 
+
     protected String getTrapSymbol() {
-        return "T";  // Override per specific trap type ('B', 'Q', 'D' etc.)
+        switch (name) {
+            case "Bonus Trap":
+                return "B";
+            case "Queen's Trap":
+                return "Q";
+            case "Death Trap":
+                return "D";
+            default:
+                return "T";
+        }
     }
+
 }

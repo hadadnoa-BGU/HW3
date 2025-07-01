@@ -89,6 +89,7 @@ public abstract class Unit extends Tile{
     }
 
 
+
     public void receiveDamage(int damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
@@ -96,6 +97,8 @@ public abstract class Unit extends Tile{
             handleDeath();
         }
     }
+
+
     protected void handleDeath() {
         if (this instanceof Enemy enemy && enemy.dthCallback != null) {
             System.out.println(enemy.getName() + " has died.");

@@ -11,11 +11,18 @@ public class Rogue extends Player {
     private final int abilityCost;
     private int currentEnergy;
 
+    private int maxEnergy;
+
+
+
     public Rogue(String name, int healthPool, int attackPoints, int defensePoints, int abilityCost, Position position) {
         super(name, healthPool, attackPoints, defensePoints, position);
         this.abilityCost = abilityCost;
         this.currentEnergy = 100;
     }
+
+    public int getCurrentEnergy() { return currentEnergy; }
+    public int getMaxEnergy() { return maxEnergy; }
 
     @Override
     protected void levelUp() {
