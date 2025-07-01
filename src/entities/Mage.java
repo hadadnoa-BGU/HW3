@@ -30,7 +30,13 @@ public class Mage extends Player {
     public void playTurn(Tile tile) {
         interact(tile);
     }
+    public int getMana() {
+        return currentMana;
+    }
 
+    public int getManaPool() {
+        return manaPool;
+    }
     @Override
     public void playTurn() {
         // Players don't act autonomously
