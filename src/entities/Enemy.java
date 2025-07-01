@@ -55,6 +55,6 @@ public abstract class Enemy extends Unit {
     public void visit(WallTile wall) {
         // Block movement
     }
-
+//.
     // Enemy-specific logic can be added by subclasses
 }
