@@ -26,5 +26,35 @@ public abstract class Enemy extends Unit {
         return "E";  // Placeholder, subclasses override for unique symbols
     }
 
+    @Override
+    public void accept(Unit visitor) {
+        visitor.visit(this);
+    }
+
+    @Override
+    public void visit(Player p) {
+        // Enemy stepping onto player: combat triggers
+        System.out.println(getName() + " attacks " + p.getName());
+        engageCombat(p);
+    }
+
+    @Override
+    public void visit(Enemy e) {
+        // Enemy visiting another enemy: do nothing
+    }
+
+    @Override
+    public void visit(EmptyTile empty) {
+        // Move to empty tile
+        Position oldPos = getPosition();
+        setPosition(empty.getPosition());
+        empty.setPosition(oldPos);
+    }
+
+    @Override
+    public void visit(WallTile wall) {
+        // Block movement
+    }
+
     // Enemy-specific logic can be added by subclasses
 }

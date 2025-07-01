@@ -28,6 +28,36 @@ public abstract class Player extends Unit {
         }
     }
 
+    @Override
+    public void accept(Unit visitor) {
+        visitor.visit(this);  // goes back to visitor logic
+    }
+
+    @Override
+    public void visit(Player p) {
+        // Player visiting another player: do nothing
+    }
+
+    @Override
+    public void visit(Enemy e) {
+        // Player stepping onto an enemy combat triggers
+        System.out.println(getName() + " engages in combat with " + e.getName());
+        engageCombat(e);
+    }
+
+    @Override
+    public void visit(EmptyTile empty) {
+        // Move to empty tile
+        Position oldPos = getPosition();
+        setPosition(empty.getPosition());
+        empty.setPosition(oldPos);
+    }
+
+    @Override
+    public void visit(WallTile wall) {
+        // Block movement, nothing happens
+    }
+
     protected void levelUp() {
         experience -= 50 * playerLevel;
         playerLevel++;

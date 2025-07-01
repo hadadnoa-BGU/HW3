@@ -46,7 +46,10 @@ public abstract class Unit {
         return "?";  // Override this in Player/Enemy to provide board symbol
     }
 
-    // Visitors - Implement these for interaction logic
+    public void interact(Tile targetTile) {
+        targetTile.accept(this);  // Visitor pattern entry point
+    }
+
     public abstract void accept(Unit visitor);
 
     public abstract void visit(Player p);
@@ -57,7 +60,23 @@ public abstract class Unit {
 
     public abstract void visit(WallTile wall);
 
+
     // Combat logic (shared for Player/Enemy)
     public void engageCombat(Unit defender) {
-        int attackRoll = RandomUtils.randomInt(0, this.attackPoints);
-        int defenseRoll = RandomUtils.randomInt(0, defender.defensePoints);
+        int attackRoll = (int) (Math.random() * (this.attackPoints + 1));
+        int defenseRoll = (int) (Math.random() * (defender.defensePoints + 1));
+        int damage = attackRoll - defenseRoll;
+
+        if (damage > 0) {
+            defender.receiveDamage(damage);
+        }
+    }
+
+    public void receiveDamage(int damage) {
+        currentHealth -= damage;
+        if (currentHealth <= 0) {
+            currentHealth = 0;
+            // Dead logic (handled by subclasses or board)
+        }
+    }
+}
