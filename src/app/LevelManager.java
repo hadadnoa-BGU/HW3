@@ -28,66 +28,148 @@ public class LevelManager {
     }
 
     public Object[] loadNextLevel(Player player, MessageCallbacks msgCallback, DeathCallback dthCallback, ChangedPositionCallback cPosCallback, GetTileCallback getTileCallback) {
-        {
 
-            if (!hasNextLevel()) {
-                throw new IllegalStateException("No more levels available.");
-            }
+        if (!hasNextLevel()) {
+            throw new IllegalStateException("No more levels available.");
+        }
 
-            String levelFile = levelsPath + "/level" + currentLevel + ".txt";
-            currentLevel++;
+        String levelFile = levelsPath + "/level" + currentLevel + ".txt";
+        currentLevel++;
 
-            try {
-                List<String> lines = Files.readAllLines(Paths.get(levelFile));
-                int height = lines.size();
-                int width = lines.get(0).length();
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(levelFile));
+            int height = lines.size();
+            int width = lines.get(0).length();
 
-                Tile[][] tiles = new Tile[height][width];
-                GameBoard board = new GameBoard(tiles);
-                List<Enemy> enemies = new LinkedList<>();
+            Tile[][] tiles = new Tile[height][width];
+            GameBoard board = new GameBoard(tiles);
+            List<Enemy> enemies = new LinkedList<>();
 
-                for (int y = 0; y < height; y++) {
-                    String line = lines.get(y);
-                    for (int x = 0; x < width; x++) {
-                        char c = line.charAt(x);
-                        Position pos = new Position(x, y);
+            for (int y = 0; y < height; y++) {
+                String line = lines.get(y);
+                for (int x = 0; x < width; x++) {
+                    char c = line.charAt(x);
+                    Position pos = new Position(x, y);
 
-                        switch (c) {
-                            case '#':
-                                board.setTile(x, y, new WallTile(pos));
-                                break;
-                            case '.':
-                                board.setTile(x, y, new EmptyTile(pos));
-                                break;
-                            case '@':
-                                player.setPosition(pos);
-                                board.setTile(x, y, player);
-                                break;
-                            case 's':
-                                Monster skeleton = new Monster("Skeleton", 50, 10, 5, 20, 3, pos);
-                                skeleton.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                    switch (c) {
+                        case '#':
+                            board.setTile(x, y, new WallTile(pos));
+                            break;
+                        case '.':
+                            board.setTile(x, y, new EmptyTile(pos));
+                            break;
+                        case '@':
+                            player.setPosition(pos);
+                            board.setTile(x, y, player);
+                            break;
 
-                                board.setTile(x, y, skeleton);
-                                enemies.add(skeleton);
-                                break;
-                            case 'k':
-                                Monster king = new Boss("The King", 100, 20, 10, 50, 5, 3, pos);
-                                king.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
-                                board.setTile(x, y, king);
-                                enemies.add(king);
-                                break;
-                            default:
-                                board.setTile(x, y, new EmptyTile(pos));
-                                break;
+                        // Monsters from PDF:
+                        case 's': { // Lannister Soldier
+                            Monster m = new Monster("Lannister Soldier", 80, 8, 3, 25, 3, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
                         }
+                        case 'k': { // Lannister Knight
+                            Monster m = new Monster("Lannister Knight", 200, 14, 8, 50, 4, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'q': { // Queen's Guard
+                            Monster m = new Monster("Queen's Guard", 400, 20, 15, 100, 5, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'z': { // Wight
+                            Monster m = new Monster("Wight", 600, 30, 15, 100, 3, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'b': { // Bear-Wright
+                            Monster m = new Monster("Bear-Wright", 1000, 75, 30, 250, 4, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'g': { // Giant-Wright
+                            Monster m = new Monster("Giant-Wright", 1500, 100, 40, 500, 5, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'w': { // White Walker
+                            Monster m = new Monster("White Walker", 2000, 150, 50, 1000, 6, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'M': { // The Mountain
+                            Monster m = new Monster("The Mountain", 1000, 60, 25, 500, 6, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'C': { // Queen Cersei
+                            Boss m = new Boss("Queen Cersei", 1000, 10, 10, 1000, 1, 1, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+                        case 'K': { // Night's King
+                            Boss m = new Boss("Night's King", 5000, 300, 150, 5000, 8, 8, pos);
+                            m.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, m);
+                            enemies.add(m);
+                            break;
+                        }
+
+                        //Traps:
+                        case 'B': {
+                            BonusTrap t = new BonusTrap(pos);
+                            t.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, t);
+                            break;
+                        }
+                        case 'Q': {
+                            QueensTrap t = new QueensTrap(pos);
+                            t.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, t);
+                            break;
+                        }
+                        case 'D': {
+                            DeathTrap t = new DeathTrap(pos);
+                            t.initialize(dthCallback, msgCallback, cPosCallback, getTileCallback);
+                            board.setTile(x, y, t);
+                            break;
+                        }
+
+
+
+                        default:
+                            msgCallback.send("Unknown tile '" + c + "' at (" + x + "," + y + "), defaulting to EmptyTile.");
+                            board.setTile(x, y, new EmptyTile(pos));
+                            break;
                     }
                 }
-
-                return new Object[]{board, enemies};
-
-            } catch (IOException e) {
-                throw new RuntimeException("Failed to load level file: " + levelFile, e);
             }
+
+            return new Object[]{board, enemies};
+
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load level file: " + levelFile, e);
         }
     }
+
 }

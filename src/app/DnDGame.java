@@ -5,6 +5,8 @@ import board.Level;
 import board.Tile;
 import callbackMessages.*;
 import entities.Enemy;
+import entities.Hunter;
+import entities.Mage;
 import entities.Player;
 import ui.ConsoleView;
 import utils.Position;
@@ -82,18 +84,58 @@ public class DnDGame {
         enemies = level.getEnemies();
         while (!enemies.isEmpty() && player.isAlive()) {
             msgCallback.send(level.getBoard().toString());
+            msgCallback.send(player.description());
             String input = console.readLine();
             playTurn(input);
         }
+
+        if (player.isAlive()) {
+            msgCallback.send("Level Cleared!");
+        }
     }
+
 
     private void playTurn(String input) {
         Position p = player.getPosition();
+        Tile[][] board = level.getBoard().getTiles();  // Get full board for ranged logic
+
         switch (input) {
-            case "a" -> player.playTurn(level.getTile(p.left()));
-            case "d" -> player.playTurn(level.getTile(p.right()));
-            case "w" -> player.playTurn(level.getTile(p.up()));
-            case "s" -> player.playTurn(level.getTile(p.down()));
+            case "a" -> {
+                if (player instanceof Mage m) {
+                    m.playTurn(level.getTile(p.left()), board, -1, 0);
+                } else if (player instanceof Hunter h) {
+                    h.playTurn(level.getTile(p.left()), board, -1, 0);
+                } else {
+                    player.playTurn(level.getTile(p.left()));
+                }
+            }
+            case "d" -> {
+                if (player instanceof Mage m) {
+                    m.playTurn(level.getTile(p.right()), board, 1, 0);
+                } else if (player instanceof Hunter h) {
+                    h.playTurn(level.getTile(p.right()), board, 1, 0);
+                } else {
+                    player.playTurn(level.getTile(p.right()));
+                }
+            }
+            case "w" -> {
+                if (player instanceof Mage m) {
+                    m.playTurn(level.getTile(p.up()), board, 0, -1);
+                } else if (player instanceof Hunter h) {
+                    h.playTurn(level.getTile(p.up()), board, 0, -1);
+                } else {
+                    player.playTurn(level.getTile(p.up()));
+                }
+            }
+            case "s" -> {
+                if (player instanceof Mage m) {
+                    m.playTurn(level.getTile(p.down()), board, 0, 1);
+                } else if (player instanceof Hunter h) {
+                    h.playTurn(level.getTile(p.down()), board, 0, 1);
+                } else {
+                    player.playTurn(level.getTile(p.down()));
+                }
+            }
             case "e" -> player.castAbility(enemies);
             case "q" -> {
                 msgCallback.send("Chose to do nothing.");
@@ -102,11 +144,21 @@ public class DnDGame {
             default -> msgCallback.send("Invalid input!");
         }
 
+        // Early exit if player cleared the level
+        if (enemies.isEmpty()) {
+            msgCallback.send("Level Cleared!");
+            return;
+        }
+
+        // Enemies take their turn
         for (Enemy e : enemies) {
             e.playTurn();
         }
+
         player.onTick();
     }
+
+
 
     private Tile getTile(Position p) {
         return level.getTile(p);

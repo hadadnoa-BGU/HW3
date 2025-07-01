@@ -101,6 +101,25 @@ public class Monster extends Enemy {
 
     @Override
     public String toString() {
-        return "M";  // Override per enemy type, e.g., 's' for Soldier, 'k' for Knight
+        switch (name) {
+            case "Lannister Soldier":
+                return "s";
+            case "Lannister Knight":
+                return "k";
+            case "Queen's Guard":
+                return "q";
+            case "Wight":
+                return "z";
+            case "Bear-Wright":
+                return "b";
+            case "Giant-Wright":
+                return "g";
+            case "White Walker":
+                return "w";
+            case "The Mountain":
+                return "M";
+            default:
+                return "M";  // Default fallback
+        }
     }
 }

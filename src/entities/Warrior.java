@@ -11,11 +11,23 @@ public class Warrior extends Player {
     private final int abilityCooldown;
     private int remainingCooldown;
 
+    private int maxCooldown;
+
+    public int getAbilityCooldown() {
+        return abilityCooldown;
+    }
+
+    public int getMaxCooldown() {
+        return maxCooldown;
+    }
+
     public Warrior(String name, int healthPool, int attackPoints, int defensePoints, int abilityCooldown, Position position) {
         super(name, healthPool, attackPoints, defensePoints, position);
         this.abilityCooldown = abilityCooldown;
         this.remainingCooldown = 0;
     }
+
+
 
     @Override
     protected void levelUp() {

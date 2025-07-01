@@ -40,6 +40,14 @@ public class Boss extends Monster implements HeroicUnit {
 
     @Override
     public String toString() {
-        return "B";  // Override per boss type
+        switch (name) {
+            case "Queen Cersei":
+                return "C";
+            case "Night's King":
+                return "K";
+            default:
+                return "B"; // Generic Boss fallback
+        }
     }
+
 }

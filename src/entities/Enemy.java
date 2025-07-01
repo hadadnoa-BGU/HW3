@@ -20,6 +20,7 @@ public abstract class Enemy extends Unit {
         this.experienceValue = experienceValue;
     }
 
+
     public int getExperienceValue() {
         return experienceValue;
     }
@@ -28,6 +29,10 @@ public abstract class Enemy extends Unit {
     public String description() {
         return String.format("%s\tHealth: %d/%d\tAttack: %d\tDefense: %d\tXP Value: %d",
                 name, currentHealth, healthPool, attackPoints, defensePoints, experienceValue);
+    }
+
+    public int getCurrentHealth() {
+        return currentHealth;
     }
 
     @Override
@@ -55,6 +60,7 @@ public abstract class Enemy extends Unit {
         return currentHealth <= 0;
     }
 
+    @Override
     public void receiveDamage(int damage) {
         currentHealth -= damage;
         if (currentHealth <= 0) {
@@ -62,6 +68,8 @@ public abstract class Enemy extends Unit {
             handleDeath();
         }
     }
+
+
 
     protected void handleDeath() {
         if (this instanceof Enemy enemy && enemy.dthCallback != null) {
