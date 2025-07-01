@@ -18,17 +18,24 @@ public class MovementHandler {
      * Handles all Visitor logic behind the scenes.
      */
     public void move(Unit mover, int targetX, int targetY) {
-        Position oldPos = mover.getPosition();
-        Tile targetTile = board.getTile(targetX, targetY);
+        try
+        {
+            Position oldPos = mover.getPosition();
+            Tile targetTile = board.getTile(targetX, targetY);
 
-        if (targetTile == null) {
-            System.out.println("Invalid move: Out of bounds.");
-            return;
+            if (targetTile == null) {
+                System.out.println("Invalid move: Out of bounds.");
+                return;
+            }
+
+            mover.interact(targetTile);  // Visitor pattern resolves interaction
+            board.setTile(targetX, targetY, mover);
+            board.setTile(oldPos.getX(), oldPos.getY(), targetTile);
         }
-
-        mover.interact(targetTile);  // Visitor pattern resolves interaction
-        board.setTile(targetX, targetY, mover);
-        board.setTile(oldPos.getX(), oldPos.getY(), targetTile);
+        catch (ArrayIndexOutOfBoundsException e)
+        {
+            throw new IllegalArgumentException("Invalid move: Out of bounds.");
+        }
     }
 
     /**

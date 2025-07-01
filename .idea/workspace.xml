@@ -7,7 +7,6 @@
     <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Finished everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mechanics/MovementHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mechanics/MovementHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,8 @@
   "keyToString": {
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in HW3.executor": "Debug",
+    "JUnit.All in HW3.executor": "Run",
+    "JUnit.MovementHandlerTest.executor": "Run",
     "JUnit.MovementHandlerTest.testMoveDown.executor": "Debug",
     "JUnit.PlayerTest.testAbilityConsumesMana.executor": "Run",
     "Repository.Attach.Annotations": "false",
@@ -92,7 +92,7 @@
       <recent name="C:\Users\ionik\IdeaProjects\hw3\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in HW3">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -174,10 +174,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in HW3" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MovementHandlerTest" />
         <item itemvalue="JUnit.MovementHandlerTest.testMoveDown" />
-        <item itemvalue="JUnit.All in HW3" />
         <item itemvalue="JUnit.PlayerTest.testAbilityConsumesMana" />
       </list>
     </recent_temporary>
@@ -324,16 +324,6 @@
           <url>file://$PROJECT_DIR$/src/board/GameBoard.java</url>
           <line>23</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mechanics/MovementHandler.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mechanics/MovementHandler.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/mechanics/MovementHandlerTest.java</url>
