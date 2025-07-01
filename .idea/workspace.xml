@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="Finished everything">
+    <list default="true" id="79a7fc78-857e-44de-a4d1-66c88a20218a" name="Changes" comment="CHanged some logic">
+      <change afterPath="$PROJECT_DIR$/src/entities/BonusTrap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/DeathTrap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/QueensTrap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/DnDGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/DnDGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Boss.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Trap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Trap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751387258077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="CHanged some logic">
+      <option name="closed" value="true" />
+      <created>1751387778638</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1751387778638</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,6 +239,7 @@
     <MESSAGE value="Added visitor checks" />
     <MESSAGE value="Added Mechanics and Board" />
     <MESSAGE value="Finished everything" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished everything" />
+    <MESSAGE value="CHanged some logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="CHanged some logic" />
   </component>
 </project>
