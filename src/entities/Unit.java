@@ -103,4 +103,5 @@ public abstract class Unit extends Tile{
         }
 
     }
+    public int getCurrentHealth() {return currentHealth;}
 }
