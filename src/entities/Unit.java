@@ -18,7 +18,7 @@ public abstract class Unit extends Tile{
     protected Position position;
 
     public Unit(String name, int healthPool, int attackPoints, int defensePoints, Position position) {
-        super(position.getX(), position.getY());
+        super(position != null ? position.getX() : 0, position != null ? position.getY() : 0);
         this.name = name;
         this.healthPool = healthPool;
         this.currentHealth = healthPool;
@@ -26,6 +26,7 @@ public abstract class Unit extends Tile{
         this.defensePoints = defensePoints;
         this.position = position;
     }
+
 
     public int getAttackPoints() {
         return attackPoints;
